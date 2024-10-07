@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import MuiChip from '@mui/material/Chip';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import MuiChip from '@mui/material/Chip'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
 
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
 
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded'
+import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded'
+import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded'
 
 const items = [
   {
@@ -18,7 +18,8 @@ const items = [
     title: 'Dashboard',
     description:
       'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
+    imageLight:
+      'url("/static/images/templates/templates-images/dash-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
   },
   {
@@ -26,21 +27,25 @@ const items = [
     title: 'Mobile integration',
     description:
       'This item could provide information about the mobile app version of the product.',
-    imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
+    imageLight:
+      'url("/static/images/templates/templates-images/mobile-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/mobile-dark.png")',
   },
   {
     icon: <DevicesRoundedIcon />,
     title: 'Available on all platforms',
     description:
       'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
+    imageLight:
+      'url("/static/images/templates/templates-images/devices-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/devices-dark.png")',
   },
-];
+]
 
 interface ChipProps {
-  selected?: boolean;
+  selected?: boolean
 }
 
 const Chip = styled(MuiChip)<ChipProps>(({ theme }) => ({
@@ -61,12 +66,12 @@ const Chip = styled(MuiChip)<ChipProps>(({ theme }) => ({
       },
     },
   ],
-}));
+}))
 
 interface MobileLayoutProps {
-  selectedItemIndex: number;
-  handleItemClick: (index: number) => void;
-  selectedFeature: (typeof items)[0];
+  selectedItemIndex: number
+  handleItemClick: (index: number) => void
+  selectedFeature: (typeof items)[0]
 }
 
 export function MobileLayout({
@@ -75,7 +80,7 @@ export function MobileLayout({
   selectedFeature,
 }: MobileLayoutProps) {
   if (!items[selectedItemIndex]) {
-    return null;
+    return null
   }
 
   return (
@@ -89,7 +94,7 @@ export function MobileLayout({
       <Box sx={{ display: 'flex', gap: 2, overflow: 'auto' }}>
         {items.map(({ title }, index) => (
           <Chip
-            size="medium"
+            size='medium'
             key={index}
             label={title}
             onClick={() => handleItemClick(index)}
@@ -97,9 +102,9 @@ export function MobileLayout({
           />
         ))}
       </Box>
-      <Card variant="outlined">
+      <Card variant='outlined'>
         <Box
-          sx={(theme) => ({
+          sx={theme => ({
             mb: 2,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -125,58 +130,58 @@ export function MobileLayout({
           >
             {selectedFeature.title}
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.5 }}>
+          <Typography variant='body2' sx={{ color: 'text.secondary', mb: 1.5 }}>
             {selectedFeature.description}
           </Typography>
         </Box>
       </Card>
     </Box>
-  );
+  )
 }
 
 export default function Features() {
-  const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+  const [selectedItemIndex, setSelectedItemIndex] = React.useState(0)
 
   const handleItemClick = (index: number) => {
-    setSelectedItemIndex(index);
-  };
+    setSelectedItemIndex(index)
+  }
 
-  const selectedFeature = items[selectedItemIndex];
+  const selectedFeature = items[selectedItemIndex]
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
-      <Box sx={{ width: { sm: "100%", md: "60%" } }}>
+    <Container id='features' sx={{ py: { xs: 8, sm: 16 } }}>
+      <Box sx={{ width: { sm: '100%', md: '60%' } }}>
         <Typography
-          component="h2"
-          variant="h4"
+          component='h2'
+          variant='h4'
           gutterBottom
-          sx={{ color: "text.primary" }}
+          sx={{ color: 'text.primary' }}
         >
           Product features
         </Typography>
         <Typography
-          variant="body1"
-          sx={{ color: "text.secondary", mb: { xs: 2, sm: 4 } }}
+          variant='body1'
+          sx={{ color: 'text.secondary', mb: { xs: 2, sm: 4 } }}
         >
           Provide a brief overview of the key features of the product. For
           example, you could list the number of features, their types or
-          benefits, and add-ons.
+          benefits.
         </Typography>
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row-reverse" },
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row-reverse' },
           gap: 2,
         }}
       >
         <div>
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
+              display: { xs: 'none', sm: 'flex' },
+              flexDirection: 'column',
               gap: 2,
-              height: "100%",
+              height: '100%',
             }}
           >
             {items.map(({ icon, title, description }, index) => (
@@ -185,42 +190,42 @@ export default function Features() {
                 component={Button}
                 onClick={() => handleItemClick(index)}
                 sx={[
-                  (theme) => ({
+                  theme => ({
                     p: 2,
-                    height: "100%",
-                    width: "100%",
-                    "&:hover": {
+                    height: '100%',
+                    width: '100%',
+                    '&:hover': {
                       backgroundColor: theme.palette.action.hover,
                     },
                   }),
                   selectedItemIndex === index && {
-                    backgroundColor: "action.selected",
+                    backgroundColor: 'action.selected',
                   },
                 ]}
               >
                 <Box
                   sx={[
                     {
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "left",
+                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'left',
                       gap: 1,
-                      textAlign: "left",
-                      textTransform: "none",
-                      color: "text.secondary",
+                      textAlign: 'left',
+                      textTransform: 'none',
+                      color: 'text.secondary',
                     },
                     selectedItemIndex === index && {
-                      color: "text.primary",
+                      color: 'text.primary',
                     },
                   ]}
                 >
                   {icon}
 
-                  <Typography variant="h6" component="h3">
+                  <Typography variant='h6' component='h3'>
                     {title}
                   </Typography>
-                  <Typography variant="body2">{description}</Typography>
+                  <Typography variant='body2'>{description}</Typography>
                 </Box>
               </Box>
             ))}
@@ -233,36 +238,36 @@ export default function Features() {
         </div>
         <Box
           sx={{
-            display: { xs: "none", sm: "flex" },
-            width: { xs: "100%", md: "70%" },
-            height: "var(--items-image-height)",
+            display: { xs: 'none', sm: 'flex' },
+            width: { xs: '100%', md: '70%' },
+            height: 'var(--items-image-height)',
           }}
         >
           <Card
-            variant="outlined"
+            variant='outlined'
             sx={{
-              height: "100%",
-              width: "100%",
-              display: { xs: "none", sm: "flex" },
-              pointerEvents: "none",
+              height: '100%',
+              width: '100%',
+              display: { xs: 'none', sm: 'flex' },
+              pointerEvents: 'none',
             }}
           >
             <Box
-              sx={(theme) => ({
-                m: "auto",
+              sx={theme => ({
+                m: 'auto',
                 width: 420,
                 height: 500,
-                backgroundSize: "contain",
-                backgroundImage: "var(--items-imageLight)",
-                ...theme.applyStyles("dark", {
-                  backgroundImage: "var(--items-imageDark)",
+                backgroundSize: 'contain',
+                backgroundImage: 'var(--items-imageLight)',
+                ...theme.applyStyles('dark', {
+                  backgroundImage: 'var(--items-imageDark)',
                 }),
               })}
               style={
                 items[selectedItemIndex]
                   ? ({
-                      "--items-imageLight": items[selectedItemIndex].imageLight,
-                      "--items-imageDark": items[selectedItemIndex].imageDark,
+                      '--items-imageLight': items[selectedItemIndex].imageLight,
+                      '--items-imageDark': items[selectedItemIndex].imageDark,
                     } as any)
                   : {}
               }
@@ -271,5 +276,5 @@ export default function Features() {
         </Box>
       </Box>
     </Container>
-  );
+  )
 }
